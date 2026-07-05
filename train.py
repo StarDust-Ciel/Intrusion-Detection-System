@@ -90,7 +90,7 @@ save_confusion_matrix(y_test,rf_preds,"Random Forest")
 joblib.dump(rf, os.path.join(model, 'nids_model_rf.pkl')) 
 print(f"Model saved in {model}/nids_model_rf.pkl\n")
 
-#Feature importance plot
+
 feat_names = joblib.load(os.path.join(model,'feature_names.pkl'))
 importance = rf.feature_importances_
 top_idx = np.argsort(importance)[-20:][::-1]
@@ -110,5 +110,3 @@ print(f"{'Model':<20}{'Accuracy':>10}{'Weighted F1':>13}")
 print(f"{'Neural Network':<20}{nn_acc:>10.4f}{nn_f1:>13.4f}") 
 print(f"{'Random Forest':<20}{rf_acc:>10.4f}{rf_f1:>13.4f}")
 print("\n Training Complete.")
-
-
